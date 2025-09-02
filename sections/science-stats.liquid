@@ -23,28 +23,50 @@
         <div class="science-stats__intro">{{ section.settings.intro }}</div>
       {% endif %}
 
-      <!-- GRID SOLO PARA STATS -->
-      <div class="science-stats__grid">
-        {% for block in section.blocks %}
-          {% if block.type == 'stat' %}
-            <div class="science-stat-card">
-              {% if block.settings.stat_source != blank %}
-                <div class="science-stat-card__source">{{ block.settings.stat_source }}</div>
-              {% endif %}
-              {% if block.settings.stat_heading != blank %}
-                <div class="science-stat-card__heading">{{ block.settings.stat_heading }}</div>
-              {% endif %}
-              <div class="science-stat-card__value">{{ block.settings.stat_value }}</div>
-              <div class="science-stat-card__label">{{ block.settings.stat_label }}</div>
-              {% if block.settings.stat_description != blank %}
-                <div class="science-stat-card__desc">{{ block.settings.stat_description }}</div>
-              {% endif %}
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
+      <!-- GRID AGRUPADO POR SUBTÍTULOS -->
+      {% for block in section.blocks %}
+        {% if block.type == 'stat_group' %}
+          <div class="science-stats__group">
+            {% if block.settings.group_title != blank %}
+              <h3 class="science-stats__group-title">{{ block.settings.group_title }}</h3>
+            {% endif %}
 
-      <!-- CTA Y REFERENCIAS DEBAJO DEL GRID -->
+            <div class="science-stats__grid">
+              <!-- Stat 1 -->
+              <div class="science-stat-card">
+                {% if block.settings.stat1_source != blank %}
+                  <div class="science-stat-card__source">{{ block.settings.stat1_source }}</div>
+                {% endif %}
+                {% if block.settings.stat1_heading != blank %}
+                  <div class="science-stat-card__heading">{{ block.settings.stat1_heading }}</div>
+                {% endif %}
+                <div class="science-stat-card__value">{{ block.settings.stat1_value }}</div>
+                <div class="science-stat-card__label">{{ block.settings.stat1_label }}</div>
+                {% if block.settings.stat1_description != blank %}
+                  <div class="science-stat-card__desc">{{ block.settings.stat1_description }}</div>
+                {% endif %}
+              </div>
+
+              <!-- Stat 2 -->
+              <div class="science-stat-card">
+                {% if block.settings.stat2_source != blank %}
+                  <div class="science-stat-card__source">{{ block.settings.stat2_source }}</div>
+                {% endif %}
+                {% if block.settings.stat2_heading != blank %}
+                  <div class="science-stat-card__heading">{{ block.settings.stat2_heading }}</div>
+                {% endif %}
+                <div class="science-stat-card__value">{{ block.settings.stat2_value }}</div>
+                <div class="science-stat-card__label">{{ block.settings.stat2_label }}</div>
+                {% if block.settings.stat2_description != blank %}
+                  <div class="science-stat-card__desc">{{ block.settings.stat2_description }}</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+      <!-- CTA Y REFERENCIAS DEBAJO -->
       {% for block in section.blocks %}
         {% if block.type == 'cta_button' %}
           <div class="science-stats__cta">
@@ -65,48 +87,55 @@
 
 {% schema %}
 {
-    "name": "Science / Stats",
-    "settings": [
-        { "type":"text","id":"title","label":"Título","default":"Backed by Science. Proven by Results." },
-        { "type":"textarea","id":"intro","label":"Intro / subtítulo" },
-        { "type":"image_picker","id":"image","label":"Imagen a la izquierda" },
-        { "type":"text","id":"image_alt","label":"Alt de la imagen" }
-    ],
-    "blocks": [
-      {
-        "type":"stat",
-        "name":"Estadística",
-        "settings":[
-          { "type":"text","id":"stat_heading","label":"Texto superior (ej. In a clinical study¹)" },
-          { "type":"text","id":"stat_value","label":"Valor (ej. 2.0x)" },
-          { "type":"text","id":"stat_label","label":"Etiqueta breve (ej. muscle strength increase)" },
-          { "type":"textarea","id":"stat_description","label":"Descripción corta (opcional)" },
-          { "type":"text","id":"stat_source","label":"Fuente / referencia (opcional)" }
-        ]
-      },
-      {
-        "type":"cta_button",
-        "name":"Botón CTA",
-        "settings":[
-          { "type":"text","id":"button_label","label":"Texto del botón","default":"See The Science" },
-          { "type":"url","id":"button_link","label":"Enlace del botón" },
-          { "type":"select","id":"button_style","label":"Estilo","options":[
-              {"value":"primary","label":"Primario"},
-              {"value":"outline","label":"Contorno"}
-            ],
-            "default":"primary"
-          }
-        ]
-      },
-      {
-        "type":"references",
-        "name":"Referencias",
-        "settings":[
-          { "type":"textarea","id":"references_text","label":"Texto de las referencias" }
-        ]
-      }
-    ],
-    "max_blocks": 12,
-    "presets": [ { "name":"Science / Stats", "category":"Custom" } ]
+  "name": "Science / Stats",
+  "settings": [
+    { "type":"text","id":"title","label":"Título","default":"Backed by Science. Proven by Results." },
+    { "type":"textarea","id":"intro","label":"Intro / subtítulo" },
+    { "type":"image_picker","id":"image","label":"Imagen a la izquierda" },
+    { "type":"text","id":"image_alt","label":"Alt de la imagen" }
+  ],
+  "blocks": [
+    {
+      "type":"stat_group",
+      "name":"Grupo de estadísticas",
+      "settings":[
+        { "type":"text","id":"group_title","label":"Título del grupo" },
+
+        { "type":"text","id":"stat1_heading","label":"Stat 1 - Texto superior" },
+        { "type":"text","id":"stat1_value","label":"Stat 1 - Valor" },
+        { "type":"text","id":"stat1_label","label":"Stat 1 - Etiqueta" },
+        { "type":"textarea","id":"stat1_description","label":"Stat 1 - Descripción (opcional)" },
+        { "type":"text","id":"stat1_source","label":"Stat 1 - Fuente (opcional)" },
+
+        { "type":"text","id":"stat2_heading","label":"Stat 2 - Texto superior" },
+        { "type":"text","id":"stat2_value","label":"Stat 2 - Valor" },
+        { "type":"text","id":"stat2_label","label":"Stat 2 - Etiqueta" },
+        { "type":"textarea","id":"stat2_description","label":"Stat 2 - Descripción (opcional)" },
+        { "type":"text","id":"stat2_source","label":"Stat 2 - Fuente (opcional)" }
+      ]
+    },
+    {
+      "type":"cta_button",
+      "name":"Botón CTA",
+      "settings":[
+        { "type":"text","id":"button_label","label":"Texto del botón","default":"See The Science" },
+        { "type":"url","id":"button_link","label":"Enlace del botón" },
+        { "type":"select","id":"button_style","label":"Estilo","options":[
+            {"value":"primary","label":"Primario"},
+            {"value":"outline","label":"Contorno"}
+          ],
+          "default":"primary"
+        }
+      ]
+    },
+    {
+      "type":"references",
+      "name":"Referencias",
+      "settings":[
+        { "type":"textarea","id":"references_text","label":"Texto de las referencias" }
+      ]
+    }
+  ],
+  "presets": [ { "name":"Science / Stats", "category":"Custom" } ]
 }
 {% endschema %}
