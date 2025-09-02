@@ -1,0 +1,150 @@
+{{ 'hero-cta.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="hero-cta">
+    <div class="hero-cta__inner">
+        <div class="hero-cta__content">
+            {% if section.settings.top_label != blank %}
+                <p class="hero-cta__eyebrow">{{ section.settings.top_label }}</p>
+            {% endif %}
+
+            {% if section.settings.title != blank %}
+                <h2 class="hero-cta__title">{{ section.settings.title }}</h2>
+            {% endif %}
+
+            {% if section.settings.subtitle != blank %}
+                <div class="hero-cta__subtitle">{{ section.settings.subtitle }}</div>
+            {% endif %}     
+            
+            {% if section.blocks.size > 0 %}
+                <div class="hero-cta__buttons" role="group" aria-label="Call to actions">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'cta_button' %}
+                            <a
+                                href="{{ block.settings.button_link | escape }}"
+                                class="hero-cta__btn {% if block.settings.button_style == 'outline' %}hero-cta__btn--outline{% else %}hero-cta__btn--primary{% endif %}"
+                                {% if block.settings.open_in_new_window %} target="_blank" rel="noopener"{% endif %}
+                                aria-label="{{ block.settings.button_label | escape }}"
+                            >
+                                {{ block.settings.button_label }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if section.settings.small_text != blank %}
+                <p class="hero-cta__small">{{ section.settings.small_text }}</p>
+            {% endif %}
+
+            {% assign features = section.blocks | where: "type", "feature" %}
+            {% if features.size > 0 %}
+                <div class="hero-cta__features">
+                    {% for block in features %}
+                        <div class="hero-cta__feature">
+                            {% case block.settings.icon %}
+                                {% when "muscle" %}
+                                    <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.2995 11.2005C18.211 12.112 18.6667 13.2118 18.6667 14.5C18.6667 15.7882 18.211 16.888 17.2995 17.7995C16.3881 18.7109 15.2883 19.1667 14.0001 19.1667C12.7118 19.1667 11.612 18.7109 10.7006 17.7995C9.7891 16.888 9.33338 15.7882 9.33338 14.5C9.33338 13.2118 9.7891 12.112 10.7006 11.2005C11.612 10.2891 12.7118 9.83333 14.0001 9.83333C15.2883 9.83333 16.3881 10.2891 17.2995 11.2005ZM18.9766 5.91406C17.4575 5.0269 15.7987 4.58333 14.0001 4.58333C12.2014 4.58333 10.5426 5.0269 9.02346 5.91406C7.50436 6.80121 6.30125 8.00435 5.41408 9.52344C4.52693 11.0425 4.08336 12.7014 4.08336 14.5C4.08336 16.2986 4.52693 17.9575 5.41408 19.4766C6.30125 20.9957 7.50436 22.1988 9.02346 23.0859C10.5426 23.9731 12.2014 24.4167 14.0001 24.4167C15.7987 24.4167 17.4575 23.9731 18.9766 23.0859C20.4957 22.1988 21.6989 20.9957 22.586 19.4766C23.4731 17.9575 23.9166 16.2986 23.9166 14.5C23.9166 12.7014 23.4731 11.0425 22.586 9.52344C21.6989 8.00435 20.4957 6.80121 18.9766 5.91406ZM26.1226 7.48178C27.3742 9.62065 28 11.9601 28 14.5C28 17.0399 27.3742 19.3854 26.1226 21.5364C24.8708 23.6753 23.1694 25.3708 21.0183 26.6224C18.8794 27.8742 16.54 28.5 14.0001 28.5C11.4601 28.5 9.11463 27.8742 6.96356 26.6224C4.82468 25.3708 3.12935 23.6753 1.87761 21.5364C0.62587 19.3854 0 17.0399 0 14.5C0 11.9601 0.62587 9.62065 1.87761 7.48178C3.12935 5.33072 4.82468 3.62935 6.96356 2.3776C9.11463 1.12587 11.4601 0.5 14.0001 0.5C16.54 0.5 18.8794 1.12587 21.0183 2.3776C23.1694 3.62935 24.8708 5.33072 26.1226 7.48178Z" fill="#232223"/>
+                                    </svg>
+                                {% when "recovery" %}
+                                    <svg width="37" height="29" viewBox="0 0 37 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M37 19.1667V23.1667C37 23.3472 36.9313 23.5069 36.7936 23.6458C36.6696 23.7708 36.5182 23.8333 36.3393 23.8333H7.92857V27.8333C7.92857 28.0139 7.85975 28.1667 7.72211 28.2917C7.59821 28.4307 7.44681 28.5 7.26786 28.5C7.10268 28.5 6.9375 28.4307 6.77232 28.2917L0.185826 21.625C0.061942 21.5 0 21.3472 0 21.1667C0 20.9722 0.061942 20.8125 0.185826 20.6875L6.79296 14.0208C6.91686 13.8958 7.07514 13.8333 7.26786 13.8333C7.44681 13.8333 7.59821 13.9028 7.72211 14.0417C7.85975 14.1667 7.92857 14.3194 7.92857 14.5V18.5H36.3393C36.5182 18.5 36.6696 18.5694 36.7936 18.7083C36.9313 18.8333 37 18.9861 37 19.1667ZM36.8142 7.35416C36.9382 7.47917 37 7.63888 37 7.83333C37 8.02779 36.9382 8.18749 36.8142 8.31251L30.2071 14.9792C30.0831 15.1042 29.9248 15.1667 29.7321 15.1667C29.5532 15.1667 29.3949 15.1042 29.2572 14.9792C29.1333 14.8403 29.0714 14.6806 29.0714 14.5V10.5H0.660714C0.481772 10.5 0.323475 10.4375 0.185826 10.3125C0.061942 10.1736 0 10.0139 0 9.83333V5.83333C0 5.65277 0.061942 5.5 0.185826 5.37499C0.323475 5.23611 0.481772 5.16667 0.660714 5.16667H29.0714V1.16667C29.0714 0.972221 29.1333 0.812499 29.2572 0.687499C29.3812 0.562499 29.5395 0.5 29.7321 0.5C29.8973 0.5 30.0625 0.569443 30.2277 0.708333L36.8142 7.35416Z" fill="#232223"/>
+                                    </svg>
+                                {% when "joints" %}
+                                    <svg width="23" height="29" viewBox="0 0 23 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.5266 15.6864V4H11.4708V24.7627C12.901 23.9915 14.1853 23.161 15.2944 22.2712C18.0964 20.017 19.5266 17.8517 19.5266 15.6864ZM22.9708 1.65678V15.6864C22.9708 16.7246 22.7665 17.7627 22.3579 18.8008C21.9492 19.8093 21.453 20.7288 20.8693 21.5297C20.2855 22.3305 19.585 23.1017 18.7386 23.8432C17.9213 24.5847 17.1624 25.2373 16.4619 25.7119C15.7614 26.2161 15.0317 26.6907 14.302 27.1059C13.5431 27.5508 13.0178 27.8475 12.6967 28.0254C12.3756 28.1737 12.1421 28.2924 11.9378 28.3814C11.7919 28.4407 11.6459 28.5 11.4708 28.5C11.2957 28.5 11.1497 28.4703 11.0038 28.3814C10.7995 28.2924 10.566 28.1737 10.2449 28.0254C9.92386 27.8771 9.39848 27.5508 8.63959 27.1059C7.88071 26.661 7.15101 26.1864 6.47969 25.7119C5.77919 25.2076 5.0203 24.5847 4.20305 23.8432C3.38579 23.1017 2.68528 22.3008 2.07233 21.5297C1.48858 20.7288 0.992386 19.8093 0.583756 18.8008C0.175127 17.7627 0 16.7246 0 15.6864V1.65678C0 1.33051 0.116751 1.06356 0.350254 0.826271C0.554569 0.618644 0.817259 0.5 1.13832 0.5H21.8325C22.1536 0.5 22.4162 0.618644 22.6497 0.855932C22.8832 1.09322 23 1.36017 23 1.68644L22.9708 1.65678Z" fill="#232223"/>
+                                    </svg>
+                            {% endcase %}
+                            <span>{{ block.settings.text }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </div>
+
+        <div class="hero-cta__media">
+            {% if section.settings.image != blank %}
+                <img
+                    src="{{ section.settings.image | image_url: width: 1200 }}"
+                    srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1600 }} 1600w"
+                    sizes="(max-width: 740px) 100vw, 50vw"
+                    alt="{{ section.settings.image_alt | default: section.settings.title | escape }}"
+                    loading="lazy"
+                    width="1600"
+                    height="600"
+                />
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Hero con CTAs",
+  "settings": [
+    { "type": "text", "id": "top_label", "label": "Texto pequeño (eyebrow)" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Wake Up The Muscles That Matter." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtítulo", "default": "Suji delivers science-backed targeted compression..." },
+    { "type": "image_picker", "id": "image", "label": "Imagen (derecha)" },
+    { "type": "text", "id": "image_alt", "label": "Alt de la imagen (accesibilidad)" },
+    { "type": "text", "id": "small_text", "label": "Texto pequeño inferior" }
+  ],
+
+  "blocks": [
+    {
+      "type": "cta_button",
+      "name": "Botón CTA",
+      "settings": [
+        { "type": "text", "id": "button_label", "label": "Etiqueta", "default": "Try Suji" },
+        { "type": "url", "id": "button_link", "label": "URL del botón" },
+        { "type": "select", "id": "button_style", "label": "Estilo",
+          "options": [
+            { "value": "primary", "label": "Principal" },
+            { "value": "outline", "label": "Outline" }
+          ],
+          "default": "primary"
+        },
+        { "type": "checkbox", "id": "open_in_new_window", "label": "Abrir en nueva pestaña" }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Beneficio",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ícono (inline SVG)",
+          "options": [
+            { "value": "muscle", "label": "Músculos" },
+            { "value": "recovery", "label": "Recuperación" },
+            { "value": "joints", "label": "Articulaciones" }
+          ],
+          "default": "muscle"
+        },
+        { "type": "text", "id": "text", "label": "Texto", "default": "Activates Muscles & Builds Strength" }
+      ]
+    }
+  ],
+
+  "max_blocks": 8,
+
+  "presets": [
+    {
+      "name": "Hero con CTAs",
+      "category": "Custom",
+      "blocks": [
+        { "type": "cta_button", "settings": { "button_label": "Try Suji", "button_style": "primary" } },
+        { "type": "cta_button", "settings": { "button_label": "How It Works", "button_style": "outline" } },
+        { "type": "feature", "settings": { "icon": "muscle", "text": "Activates Muscles & Builds Strength" } },
+        { "type": "feature", "settings": { "icon": "recovery", "text": "Boosts Recovery & Circulation" } },
+        { "type": "feature", "settings": { "icon": "joints", "text": "Supports Healthy Joints & Movement" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
