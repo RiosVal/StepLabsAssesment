@@ -173,6 +173,54 @@
     },
     "science_stats_zWhVd7": {
       "type": "science-stats",
+      "blocks": {
+        "stat_EbLUPY": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a clinical study¹",
+            "stat_value": "2.0x",
+            "stat_label": "muscle strength increase vstraditional low-load training",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        },
+        "stat_b6djN3": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a systematic review²",
+            "stat_value": "3.2x",
+            "stat_label": "greater muscle mass gainscompared to walking or lighttraining without TargetedCompression/BFR",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        },
+        "stat_efJ68M": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a recovery study³",
+            "stat_value": "78%",
+            "stat_label": "faster muscle recovery time post-exercise with TargetedCompression/BFR compared topassive rest",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        },
+        "stat_wxPgBX": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a clinical trial⁴",
+            "stat_value": "40-50%",
+            "stat_label": "pain reduction reported inindividuals with chronicmusculoskeletal pain",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_EbLUPY",
+        "stat_b6djN3",
+        "stat_efJ68M",
+        "stat_wxPgBX"
+      ],
       "name": "Science / Stats",
       "settings": {
         "title": "Backed by Science. Proven by Results.",
