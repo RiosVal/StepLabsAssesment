@@ -19,10 +19,6 @@
         <h2 class="science-stats__title">{{ section.settings.title }}</h2>
       {% endif %}
 
-      {% if section.settings.intro != blank %}
-        <div class="science-stats__intro">{{ section.settings.intro }}</div>
-      {% endif %}
-
       <!-- GRID AGRUPADO POR SUBTÍTULOS -->
       {% for block in section.blocks %}
         {% if block.type == 'stat_group' %}
@@ -84,7 +80,6 @@
   "name": "Science / Stats",
   "settings": [
     { "type":"text","id":"title","label":"Título","default":"Backed by Science. Proven by Results." },
-    { "type":"textarea","id":"intro","label":"Intro / subtítulo" },
     { "type":"image_picker","id":"image","label":"Imagen a la izquierda" },
     { "type":"text","id":"image_alt","label":"Alt de la imagen" }
   ],
