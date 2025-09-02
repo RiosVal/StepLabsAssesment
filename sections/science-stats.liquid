@@ -1,0 +1,112 @@
+{{ 'science-stats.css' | asset_url | stylesheet_tag }}
+
+<section id="section-{{ section.id }}" class="science-stats">
+  <div class="science-stats__inner">
+    <div class="science-stats__media">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.image_alt | escape }}"
+          loading="lazy"
+          width="1600"
+          height="600"
+        />
+      {% endif %}
+    </div>
+
+    <div class="science-stats__content">
+      {% if section.settings.title != blank %}
+        <h2 class="science-stats__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.intro != blank %}
+        <div class="science-stats__intro">{{ section.settings.intro }}</div>
+      {% endif %}
+
+      <!-- GRID SOLO PARA STATS -->
+      <div class="science-stats__grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'stat' %}
+            <div class="science-stat-card">
+              {% if block.settings.stat_source != blank %}
+                <div class="science-stat-card__source">{{ block.settings.stat_source }}</div>
+              {% endif %}
+              {% if block.settings.stat_heading != blank %}
+                <div class="science-stat-card__heading">{{ block.settings.stat_heading }}</div>
+              {% endif %}
+              <div class="science-stat-card__value">{{ block.settings.stat_value }}</div>
+              <div class="science-stat-card__label">{{ block.settings.stat_label }}</div>
+              {% if block.settings.stat_description != blank %}
+                <div class="science-stat-card__desc">{{ block.settings.stat_description }}</div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- CTA Y REFERENCIAS DEBAJO DEL GRID -->
+      {% for block in section.blocks %}
+        {% if block.type == 'cta_button' %}
+          <div class="science-stats__cta">
+            <a href="{{ block.settings.button_link }}" class="science-stats__see {{ block.settings.button_style }}">
+              {{ block.settings.button_label }} →
+            </a>
+          </div>
+        {% elsif block.type == 'references' %}
+          <div class="science-stats__references">
+            {{ block.settings.references_text | newline_to_br }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+    "name": "Science / Stats",
+    "settings": [
+        { "type":"text","id":"title","label":"Título","default":"Backed by Science. Proven by Results." },
+        { "type":"textarea","id":"intro","label":"Intro / subtítulo" },
+        { "type":"image_picker","id":"image","label":"Imagen a la izquierda" },
+        { "type":"text","id":"image_alt","label":"Alt de la imagen" }
+    ],
+    "blocks": [
+      {
+        "type":"stat",
+        "name":"Estadística",
+        "settings":[
+          { "type":"text","id":"stat_heading","label":"Texto superior (ej. In a clinical study¹)" },
+          { "type":"text","id":"stat_value","label":"Valor (ej. 2.0x)" },
+          { "type":"text","id":"stat_label","label":"Etiqueta breve (ej. muscle strength increase)" },
+          { "type":"textarea","id":"stat_description","label":"Descripción corta (opcional)" },
+          { "type":"text","id":"stat_source","label":"Fuente / referencia (opcional)" }
+        ]
+      },
+      {
+        "type":"cta_button",
+        "name":"Botón CTA",
+        "settings":[
+          { "type":"text","id":"button_label","label":"Texto del botón","default":"See The Science" },
+          { "type":"url","id":"button_link","label":"Enlace del botón" },
+          { "type":"select","id":"button_style","label":"Estilo","options":[
+              {"value":"primary","label":"Primario"},
+              {"value":"outline","label":"Contorno"}
+            ],
+            "default":"primary"
+          }
+        ]
+      },
+      {
+        "type":"references",
+        "name":"Referencias",
+        "settings":[
+          { "type":"textarea","id":"references_text","label":"Texto de las referencias" }
+        ]
+      }
+    ],
+    "max_blocks": 12,
+    "presets": [ { "name":"Science / Stats", "category":"Custom" } ]
+}
+{% endschema %}
