@@ -88,6 +88,22 @@
             "stat2_source": ""
           }
         },
+        "stat_group_AfqmTH": {
+          "type": "stat_group",
+          "settings": {
+            "group_title": "CLINICALLY SHOWN TO SPEED UP RECOVERY",
+            "stat1_heading": "In a recovery study³",
+            "stat1_value": "78%",
+            "stat1_label": "faster muscle recovery time post-exercise with TargetedCompression/BFR compared topassive rest",
+            "stat1_description": "",
+            "stat1_source": "",
+            "stat2_heading": "In a clinical trial⁴",
+            "stat2_value": "40-50%",
+            "stat2_label": "pain reduction reported inindividuals with chronicmusculoskeletal pain",
+            "stat2_description": "",
+            "stat2_source": ""
+          }
+        },
         "cta_button_hjF9Tj": {
           "type": "cta_button",
           "settings": {
@@ -105,13 +121,14 @@
       },
       "block_order": [
         "stat_group_JQMenN",
+        "stat_group_AfqmTH",
         "cta_button_hjF9Tj",
         "references_4HzC8x"
       ],
       "name": "Science / Stats",
       "settings": {
         "title": "Backed by Science. Proven by Results.",
-        "intro": "BUILD LASTING STRENGTH IN JUST 3 SHORT SESSIONS A WEEK",
+        "intro": "",
         "image": "shopify://shop_images/BackedByScience.png",
         "image_alt": ""
       }
