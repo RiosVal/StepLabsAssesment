@@ -213,13 +213,29 @@
             "stat_description": "",
             "stat_source": ""
           }
+        },
+        "cta_button_hjF9Tj": {
+          "type": "cta_button",
+          "settings": {
+            "button_label": "See The Science",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        },
+        "references_4HzC8x": {
+          "type": "references",
+          "settings": {
+            "references_text": "¹Yasuda et al., 2010 ²Loenneke et al., 2012\n³Takarada et al., 2000 ⁴Hughes et al., 2017"
+          }
         }
       },
       "block_order": [
         "stat_EbLUPY",
         "stat_b6djN3",
         "stat_efJ68M",
-        "stat_wxPgBX"
+        "stat_wxPgBX",
+        "cta_button_hjF9Tj",
+        "references_4HzC8x"
       ],
       "name": "Science / Stats",
       "settings": {
