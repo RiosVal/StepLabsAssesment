@@ -1,1 +1,151 @@
-{"sections":{"hero_zTj8JC":{"type":"hero","blocks":{"text_NVHp3j":{"type":"text","settings":{"text":"<h1>New arrivals<\/h1>","width":"fit-content","max_width":"narrow","alignment":"left","type_preset":"h1","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"var(--color-foreground)","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"text_8c8nQW":{"type":"text","settings":{"text":"<p>Made with care and unconditionally loved by our customers.<\/p>","width":"fit-content","max_width":"narrow","alignment":"left","type_preset":"rte","font":"var(--font-body--family)","font_size":"1rem","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","color":"var(--color-foreground)","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":32,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"button_crEkJj":{"type":"button","name":"t:names.button","settings":{"label":"Shop Now","link":"shopify:\/\/collections\/all","open_in_new_tab":false,"style_class":"button","width":"fit-content","custom_width":100,"width_mobile":"fit-content","custom_width_mobile":100},"blocks":{}}},"block_order":["text_NVHp3j","text_8c8nQW","button_crEkJj"],"name":"t:names.hero","settings":{"media_type_1":"image","media_type_2":"image","link":"","open_in_new_tab":false,"content_direction":"column","vertical_on_mobile":true,"horizontal_alignment":"flex-start","vertical_alignment":"center","align_baseline":false,"horizontal_alignment_flex_direction_column":"center","vertical_alignment_flex_direction_column":"center","gap":16,"section_width":"page-width","section_height":"large","section_height_custom":50,"color_scheme":"scheme-5","toggle_overlay":true,"overlay_color":"#00000026","overlay_style":"gradient","gradient_direction":"to top","blurred_reflection":false,"reflection_opacity":75,"padding-block-start":40,"padding-block-end":40}}},"order":["hero_zTj8JC"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_cta_VaFFry": {
+      "type": "hero-cta",
+      "blocks": {
+        "cta_button_yzd6Ex": {
+          "type": "cta_button",
+          "settings": {
+            "button_label": "Try Suji",
+            "button_link": "",
+            "button_style": "primary",
+            "open_in_new_window": false
+          }
+        },
+        "cta_button_YgrNch": {
+          "type": "cta_button",
+          "settings": {
+            "button_label": "How It Works",
+            "button_link": "",
+            "button_style": "outline",
+            "open_in_new_window": false
+          }
+        },
+        "feature_Q4dxrY": {
+          "type": "feature",
+          "settings": {
+            "icon": "muscle",
+            "text": "Activates Muscles & Builds Strength"
+          }
+        },
+        "feature_8QJgEG": {
+          "type": "feature",
+          "settings": {
+            "icon": "recovery",
+            "text": "Boosts Recovery & Circulation"
+          }
+        },
+        "feature_76LFmp": {
+          "type": "feature",
+          "settings": {
+            "icon": "joints",
+            "text": "Supports Healthy Joints & Movement"
+          }
+        }
+      },
+      "block_order": [
+        "cta_button_yzd6Ex",
+        "cta_button_YgrNch",
+        "feature_Q4dxrY",
+        "feature_8QJgEG",
+        "feature_76LFmp"
+      ],
+      "name": "Hero con CTAs",
+      "settings": {
+        "top_label": "Trusted by 1,000+ happy customers",
+        "title": "Wake Up The Muscles That Matter.",
+        "subtitle": "Suji delivers science-backed targeted compression —\npain relief, muscle activation, and lasting strength in\nminutes, right from home.",
+        "image": "shopify://shop_images/MusclesThatMatter.png",
+        "image_alt": "",
+        "small_text": ""
+      }
+    },
+    "science_stats_zWhVd7": {
+      "type": "science-stats",
+      "blocks": {
+        "stat_EbLUPY": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a clinical study¹",
+            "stat_value": "2.0x",
+            "stat_label": "muscle strength increase vstraditional low-load training",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        },
+        "stat_b6djN3": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a systematic review²",
+            "stat_value": "3.2x",
+            "stat_label": "greater muscle mass gainscompared to walking or lighttraining without TargetedCompression/BFR",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        },
+        "stat_efJ68M": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a recovery study³",
+            "stat_value": "78%",
+            "stat_label": "faster muscle recovery time post-exercise with TargetedCompression/BFR compared topassive rest",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        },
+        "stat_wxPgBX": {
+          "type": "stat",
+          "settings": {
+            "stat_heading": "In a clinical trial⁴",
+            "stat_value": "40-50%",
+            "stat_label": "pain reduction reported inindividuals with chronicmusculoskeletal pain",
+            "stat_description": "",
+            "stat_source": ""
+          }
+        },
+        "cta_button_hjF9Tj": {
+          "type": "cta_button",
+          "settings": {
+            "button_label": "See The Science",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        },
+        "references_4HzC8x": {
+          "type": "references",
+          "settings": {
+            "references_text": "¹Yasuda et al., 2010 ²Loenneke et al., 2012\n³Takarada et al., 2000 ⁴Hughes et al., 2017"
+          }
+        }
+      },
+      "block_order": [
+        "stat_EbLUPY",
+        "stat_b6djN3",
+        "stat_efJ68M",
+        "stat_wxPgBX",
+        "cta_button_hjF9Tj",
+        "references_4HzC8x"
+      ],
+      "name": "Science / Stats",
+      "settings": {
+        "title": "Backed by Science. Proven by Results.",
+        "intro": "BUILD LASTING STRENGTH IN JUST 3 SHORT SESSIONS A WEEK",
+        "image": "shopify://shop_images/BackedByScience.png",
+        "image_alt": ""
+      }
+    }
+  },
+  "order": [
+    "hero_cta_VaFFry",
+    "science_stats_zWhVd7"
+  ]
+}
